@@ -1,0 +1,9 @@
+.light {
+    background-color: #fff;
+    color: black;
+}
+
+.dark {
+    background-color: #212529; /* = bg-dark = gray-900 in Bootstrap */
+    color: #DB6124;
+}
