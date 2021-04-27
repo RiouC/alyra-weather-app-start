@@ -14,15 +14,13 @@ const WeatherApp = ({city}) => {
     const [apiCallsCount, setApiCallsCount] = useState(0);
     
     useEffect(() => {
-        // setApiCallsCount(apiCallsCount + 1);
-        console.log(apiCallsCount);
-
         const apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
         console.log(apiKey);
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=fr`;
         fetch(url)
             .then((response) => {
                 setApiCallsCount(a => a + 1);
+                console.log(`number of calls to openweather: ${apiCallsCount}`);
                 console.log(response);
                 if (!response.ok) {
                     throw new Error("Météo introuvable");
@@ -43,7 +41,7 @@ const WeatherApp = ({city}) => {
             .catch((error) => {
                 alert(error.message);
             });
-    }, [city]);
+    }, [city, apiCallsCount]);
 
     
     return (
